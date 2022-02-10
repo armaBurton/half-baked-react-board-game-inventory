@@ -68,7 +68,7 @@ export default function CreatePage() {
             Min Players
           {/* on change, set the min players in state */}
           {
-            minPlayers < 0 ? setMinPlayers(0) : <input type='number' required value={minPlayers} name='min_players' onChange={e => setMinPlayers(e.target.value)} /> 
+            minPlayers < 0 ? setMinPlayers(0) : <input type='number' required value={minPlayers} name='min_players' onChange={e => setMinPlayers(Number(e.target.value))} /> 
           }
         </label>
         <label>
@@ -77,7 +77,7 @@ export default function CreatePage() {
           {
             maxPlayers < minPlayers ? setMaxPlayers(minPlayers) : ''
           }
-          <input type='number' required value={maxPlayers} name='max_players' onChange={e => setMaxPlayers(e.target.value)}/>
+          <input type='number' required value={maxPlayers} name='max_players' onChange={e => setMaxPlayers(Number(e.target.value))}/>
         </label>
         <label className='description-label'>
           <div className='description-div'>Description</div>
