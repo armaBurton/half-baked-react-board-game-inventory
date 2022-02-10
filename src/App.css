@@ -51,6 +51,7 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 10;
 }
 
 
@@ -69,6 +70,11 @@ form button {
 
 form label input, form label textarea, form label select  {
   margin: 5px;
+  width: 170;
+}
+
+select option{
+  width: 170;
 }
 
 select {

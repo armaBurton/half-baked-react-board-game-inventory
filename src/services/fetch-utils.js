@@ -38,8 +38,8 @@ export async function createGame(game){
 export async function getGames() {
   const response = await client
     .from('board_games')
-    .select();
-
+    .select('*');
+  console.log(response);
 
   return checkError(response);    
 }
