@@ -3,7 +3,6 @@ import { getUser } from './services/fetch-utils';
 import {
   BrowserRouter as Router,
   Switch,
-  NavLink,
   Route,
   Redirect,
   Link,
@@ -18,8 +17,16 @@ import { logout } from './services/fetch-utils';
 
 export default function App() {
   // You'll need to track the user in state
-  const [currentUser, setCurrentUser] = useState(localStorage.getItem(`supabase.auth.token`));
+  const [currentUser, setCurrentUser] = useState('');
   // add a useEffect to get the user and inject the user object into state on load
+  useEffect(() => {
+    async function getUserObj(){
+      const data = await getUser();
+      setCurrentUser(data);
+    }
+
+    getUserObj();
+  }, []);
 
   async function handleLogout() {
     // call the logout function
@@ -37,9 +44,9 @@ export default function App() {
             !currentUser
               ? <></>
               : <>
-                <a href='#'>Board Games List</a>
-                <a href='./create'>Create Item</a>
-                <a onClick={handleLogout}>Logout</a>
+                <Link to='/board-games'>Board Games List</Link>
+                <Link to='/create'>Create Item</Link>
+                <Link onClick={handleLogout} to='/'>Logout</Link>
               </>
           }
         </header>

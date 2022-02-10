@@ -54,7 +54,6 @@ a {
   z-index: 10;
 }
 
-
 form { 
   text-align: right;
   margin: 100px;
@@ -70,29 +69,43 @@ form button {
 
 form label input, form label textarea, form label select  {
   margin: 5px;
-  width: 170;
+  width: 170px;
 }
 
-select option{
-  width: 170;
+.description-label{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.description-div{
+  padding-bottom: 5px;
+}
+
+form label textarea{
+  height: 50px;
 }
 
 select {
-  width: 150px;
+  width: 170px;
 }
 
 .games {
   display: flex;
   flex-wrap: wrap;
+  gap: 10px;
   justify-content: center;
   align-items: center;
 }
 
 .game {
-
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .detail {
+  border: 1px solid black;
+  border-radius: 5px;
   width: 60%;
   margin: 0 auto;
 }

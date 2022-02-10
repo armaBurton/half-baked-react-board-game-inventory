@@ -1,6 +1,6 @@
 import { client, checkError } from './client';
 
-export function getUser() {
+export async function getUser() {
   return client.auth.session();
 
 }
@@ -34,17 +34,13 @@ export async function createGame(game){
   return checkError(response);
 }
 
-
 export async function getGames() {
   const response = await client
     .from('board_games')
     .select('*');
-  console.log(response);
 
   return checkError(response);    
 }
-
-
 
 export async function getGameById(id) {
   const response = await client
