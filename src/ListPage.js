@@ -15,7 +15,7 @@ export default function ListPage() {
     }
 
     fetchGames();
-  }, []);
+  }, [games]);
 
   return (
     <div className='list games'>
