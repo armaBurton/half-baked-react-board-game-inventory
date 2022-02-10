@@ -23,8 +23,17 @@ export default function CreatePage() {
     e.preventDefault();
 
     // create a game
+    await createGame({
+      title,
+      genre,
+      min_players: minPlayers,
+      max_players: maxPlayers,
+      designer,
+      description,
+    });
 
     // use history.push to send the user to the list page
+    history.push('/board-games');
   }
 
   return (
@@ -40,7 +49,7 @@ export default function CreatePage() {
         <label>
             Genre
           {/* on change, set the genre in state */}
-          <select required value={genre} onChange={e => setTitle(e.target.value)}>
+          <select required value={genre} onChange={e => setGenre(e.target.value)}>
             <option>Tile-laying</option>
             <option>Economic</option>
             <option>War</option>
@@ -61,7 +70,6 @@ export default function CreatePage() {
           {
             minPlayers < 0 ? setMinPlayers(0) : <input type='number' required value={minPlayers} name='min_players' onChange={e => setMinPlayers(e.target.value)} /> 
           }
-           
         </label>
         <label>
             Max Players
@@ -71,10 +79,10 @@ export default function CreatePage() {
           }
           <input type='number' required value={maxPlayers} name='max_players' onChange={e => setMaxPlayers(e.target.value)}/>
         </label>
-        <label>
-            Description
+        <label className='description-label'>
+          <div className='description-div'>Description</div>
           {/* on change, set the description in state */}
-          <textarea required name='max_players' />
+          <textarea required value={description} name='max_players' onChange={e => setDescription(e.target.value)} />
         </label>
         <button>Create game</button>
       </form>
