@@ -12,12 +12,10 @@ export default function ListPage() {
       const data = await getGames();
 
       setGames(data);
-      console.log(games);
-
     }
 
     fetchGames();
-  }, []);
+  }, [games]);
 
   return (
     <div className='list games'>
